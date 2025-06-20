@@ -1,1 +1,8 @@
 /.venv/
+/.idea/
+/kaki/
+/main.py.orig
+/watchdog/
+/python-for-android/
+/bin/
+/.buildozer/
