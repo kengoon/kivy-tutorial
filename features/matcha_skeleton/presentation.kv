@@ -1,0 +1,52 @@
+<MatchaSkeletonScreen>
+    name: "matcha skeleton screen"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "20dp", "20dp", "20dp", "100dp"
+        spacing: "20dp"
+        BoxLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            Button:
+                size_hint: None, None
+                size: "45dp", "45dp"
+            Widget
+            Button:
+                size_hint: None, None
+                size: "45dp", "45dp"
+            Button:
+                size_hint: None, None
+                size: "45dp", "45dp"
+        RelativeLayout:
+            AsyncImage:
+                source: "/home/kengo/Pictures/526-200x300.jpg"
+                fit_mode: "cover"
+            Button:
+                size_hint: None, None
+                size: "45dp", "45dp"
+                pos: "10dp", "10dp"
+            Button:
+                size_hint: None, None
+                size: "45dp", "45dp"
+                pos: self.parent.width - self.width - dp(10), "10dp"
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                y: dp(45) + dp(10)
+                spacing: "10dp"
+                Label:
+                    text: "Christine [color=ffffffa1]21[/color]"
+                    markup: True
+                    font_size: "32sp"
+                    halign: "center"
+                    text_size: self.width, None
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                Label:
+                    text: "Solo, Indonesia"
+                    font_size: "14sp"
+                    halign: "center"
+                    text_size: self.width, None
+                    size_hint_y: None
+                    height: self.texture_size[1]

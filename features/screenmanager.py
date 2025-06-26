@@ -15,6 +15,9 @@ class AppScreenManager(ScreenManager):
             },
             "new screen": {
                 "presentation": ("features.new.presentation", "NewScreen")
+            },
+            "matcha skeleton screen": {
+                "presentation": ("features.matcha_skeleton.presentation", "MatchaSkeletonScreen")
             }
         }
     )
