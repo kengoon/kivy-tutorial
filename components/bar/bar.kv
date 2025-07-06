@@ -1,0 +1,58 @@
+<NavigationItem>
+    size: "50dp", "50dp"
+    bg_color:
+        (
+        self.indicator_color
+        if self.indicator_color else
+        app.theme_cls.primary_color[:3] + [.2]
+        ) \
+        if self.active else \
+        app.theme_cls.bg_color_light[:3] + [.2]
+    color:
+        (
+        self.icon_color_active
+        if self.icon_color_active else
+        app.theme_cls.primary_color
+        ) \
+        if self.active else \
+        (
+        self.icon_color_normal
+        if self.icon_color_normal else
+        app.theme_cls.text_color
+        )
+    line_color:
+        (
+        self.indicator_color
+        if self.indicator_color else
+        app.theme_cls.primary_color[:3] + [.2]
+        ) \
+        if self.active else \
+        app.theme_cls.bg_color_light[:3] + [.2]
+
+
+<BottomNavigationBar>
+    adaptive_size: True
+    spacing: "10dp"
+    padding: "15dp"
+    canvas:
+        # background color
+        Color:
+            rgba: self.bg_color if self.bg_color else app.theme_cls.bg_color_light[:3] + [.2]
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: self.radius if self.radius else [self.height / 2]
+
+        # outline color
+        Color:
+            rgba: self.bg_color if self.bg_color else app.theme_cls.bg_color_light[:3] + [.2]
+        Line:
+            width: self.line_width
+            rounded_rectangle:
+                [
+                self.x,
+                self.y,
+                self.width,
+                self.height,
+                *[self.radius if self.radius else [self.height / 2]][0]
+                ]

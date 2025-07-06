@@ -1,0 +1,76 @@
+<MatchaScreen>
+    name: "matcha screen"
+    EffectWidget:
+        effects: HorizontalBlurEffect(size=10), VerticalBlurEffect(size=10)
+        CoverImage:
+            source: image.source
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: 0, 0, 0, .3
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+    BoxLayout:
+        orientation: "vertical"
+        padding: "20dp", app.statusbar_height, "20dp", "120dp"
+        spacing: "20dp"
+        BoxLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: "5dp"
+            MatchaIconButton:
+                icon: "account"
+            Widget
+            MatchaIconButton:
+                icon: "chat"
+            MatchaIconButton:
+                icon: "dots-horizontal"
+        RelativeLayout:
+            BoxLayout:
+                canvas.before:
+                    Color:
+                        rgba: app.theme_cls.shadow_color_light
+                    BoxShadow:
+                        pos: self.pos
+                        size: self.size
+                        offset: 0, 0
+                        blur_radius: 20
+                        spread_radius: -dp(5), -dp(5)
+                        border_radius: [dp(20)] * 4
+            CoverImage:
+                id: image
+                source: "assets/images/img.png"
+                radius: "30dp"
+                fit_mode: "cover"
+                canvas:
+                    Rectangle:
+                        size: self.width, dp(200)
+                        pos: self.pos
+                        texture: Gradient.vertical([0, 0, 0, .7], [0, 0, 0, 0])
+            MatchaIconButton:
+                icon: "close"
+                pos: "10dp", "10dp"
+            MatchaIconButton:
+                icon: "heart"
+                pos: self.parent.width - self.width - dp(10), "10dp"
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                y: dp(45) + dp(10)
+                CustomLabel:
+                    text: "Christine [color=ffffffa1]21[/color]"
+                    markup: True
+                    font_size: "32sp"
+                    halign: "center"
+                    adaptive_height: True
+                CustomLabel:
+                    text: f"[font={icon_path}][size={int(sp(16))}]\U000F034E[/size][/font] Solo, Indonesia"
+                    markup: True
+                    font_size: "14sp"
+                    halign: "center"
+                    adaptive_height: True
+
+<MatchaIconButton@IconButton>
+    bg_color: app.theme_cls.bg_color_light[:3] + [.2]

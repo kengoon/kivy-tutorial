@@ -18,6 +18,12 @@ class AppScreenManager(ScreenManager):
             },
             "matcha skeleton screen": {
                 "presentation": ("features.matcha_skeleton.presentation", "MatchaSkeletonScreen")
+            },
+            "matcha components screen": {
+                "presentation": ("features.matcha_components.presentation", "MatchaComponentsScreen")
+            },
+            "matcha screen": {
+                "presentation": ("features.matcha.presentation", "MatchaScreen")
             }
         }
     )

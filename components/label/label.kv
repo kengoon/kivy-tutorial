@@ -1,0 +1,47 @@
+#:import md_icons ui.icon_definitions.md_icons
+
+<CustomLabel>
+    text_size:
+        (self.width if not self.adaptive_width else None) \
+        if not self.adaptive_size else None, \
+        None
+    color: app.theme_cls.text_color
+    canvas.before:
+        Color:
+            rgba: self.shadow_color
+        BoxShadow:
+            pos: self.pos
+            size: self.size
+            offset: 0, 0
+            spread_radius: -dp(5), -dp(5)
+            border_radius: [*self.radius]
+        Color:
+            rgba: self.bg_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: self.radius
+        Color:
+            rgba: self.line_color
+        SmoothLine:
+            width: self.line_width
+            rounded_rectangle:
+                [
+                self.x,
+                self.y,
+                self.width,
+                self.height,
+                *self.radius,
+                ]
+
+<Icon>
+    size_hint: None, None
+    text_size: None, None
+    size: self.texture_size
+    font_size: "24sp"
+    text:
+        (
+        "{}".format(md_icons[self.icon])
+        if self.icon in md_icons else
+        "blank"
+        )
